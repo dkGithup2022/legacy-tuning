@@ -197,7 +197,7 @@ EXPLAIN 으로 본 차이는 **인덱스 활용 여부**입니다. BEFORE 의 `o
 
 ### 4.1. 동시성 — 같은 snapshot 으로 묶기
 
-BEFORE (단일 쿼리) 는 한 SQL 안에서 statement-level snapshot 으로 한 시점의 데이터를 봅니다. 2단계 분리가 같은 행동을 유지하려면 1단계·2단계가 같은 tx 의 같은 snapshot 안에 있어야 합니다 — `**REPEATABLE READ` 수준이 권장** 됩니다.
+BEFORE (단일 쿼리) 는 한 SQL 안에서 statement-level snapshot 으로 한 시점의 데이터를 봅니다. 2단계 분리가 같은 행동을 유지하려면 1단계·2단계가 같은 tx 의 같은 snapshot 안에 있어야 합니다 — **`REPEATABLE READ` 수준이 권장됩니다**.
 
 - **MySQL InnoDB 기본: `REPEATABLE READ`**. 일반 SELECT 라면 기본 격리 수준만으로 BEFORE 와 동일 일관성.
 - **Oracle 기본: `READ COMMITTED`**. 두 SQL 사이 일관성은 보장되지 않음. `SET TRANSACTION READ ONLY` 또는 `SERIALIZABLE` 로 명시 승격 권장.
